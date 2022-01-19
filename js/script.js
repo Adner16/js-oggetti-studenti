@@ -8,15 +8,17 @@ console.log('js ok');
 // 5 Dare la possibilità all’utente, attraverso 3 prompt(), di aggiungere all’array creato in precedenza, un nuovo oggetto studente inserendo nell’ ordine: nome, cognome e età.
 // 6 Usiamo il DOM per stampare e chiedere le informazioni all'utente!
 
-const dispalyStudent = document.getElementById('list');
+const dispalyStudent = document.getElementById('class-list');
+
+
 
 //1 creare un oggetto // 2 stampare a schermo
-const student = { nome:'Giovanni', cognome:'renda', eta:'26'};
-    console.log(student);
-    for (let key in student){
-        console.log(key, student[key]);
-            dispalyStudent.innerHTML += `<li>${student[key]}</li>`
-    }
+// const student = { nome:'Giovanni', cognome:'renda', eta:'26'};
+//     console.log(student);
+//     for (let key in student){
+//         console.log(key, student[key]);
+//             dispalyStudent.innerHTML += `<li>${student[key]}</li>`
+//     }
 
 
 // 3 creare un arrey di oggetti
@@ -27,29 +29,42 @@ const classe = [
     {nome: 'pietro', cognome: 'ciccio', eta: '21' },
     {nome: 'massimo', cognome: 'franco', eta: '22'},
 ]
-console.table(classe);
-
-const displayClass = document.getElementById('class-list');
-
-for ( let i = 0; i < classe.length; i++){
-   const studente = classe[i];
-        console.log(studente.nome,studente.cognome);
-        displayClass.innerHTML += `<li>${studente.nome} ${studente.cognome}</li>`
-}
-
-
-    const newName = prompt('inserisci il nome','peppe');
-    const newSurname = prompt('inserisci il cognome','rossi');
-    const newAge = prompt("inserisci l'età","30");
-
-    const newMember = { nome: newName, cognome: newSurname, eta: newAge};
-    classe.push(newMember);
     console.table(classe);
 
-    let updatedClass = document.getElementById('updated-class');
-
-    for ( let i = 0; i < classe.length; i++){
+    for (let i = 0; i < classe.length; i++){
         const current = classe[i];
-        updatedClass.innerHTML += `<li>${current.nome} ${current.cognome}</li>`;
+        console.log(current);
+        dispalyStudent.innerHTML += `<li>${current.nome} ${current.cognome}</li>`;
+
     }
 
+
+    // const newName = prompt('inserisci il nome','peppe');
+    // const newSurname = prompt('inserisci il cognome','rossi');
+    // const newAge = prompt("inserisci l'età","30");
+
+   
+     
+    const btnAdd = document.getElementById('btn-add');
+    btnAdd.addEventListener('click', function (){
+
+        const newName = document.getElementById('new-name').value;
+        const newSurname = document.getElementById('new-surname').value;
+        const newAge = document.getElementById('new-age').value;
+    
+        const newMember = { nome: newName, cognome: newSurname, eta: newAge};
+        classe.push(newMember);
+        console.table(classe);
+        console.log(newAge);    
+     
+         let updatedClass = document.getElementById('updated-class');
+     
+         for ( let i = 0; i < classe.length; i++){
+             const current = classe[i];
+             updatedClass.innerHTML += `<li>${current.nome} ${current.cognome}</li>`;
+         }
+
+
+    })
+
+  
