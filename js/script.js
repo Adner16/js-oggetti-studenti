@@ -22,10 +22,10 @@ const student = { nome:'Giovanni', cognome:'renda', eta:'26'};
 // 3 creare un arrey di oggetti
 
 const classe = [
-    francesco = {nome: 'francesco', cognome: 'renda', eta: '26'},
-    antonio = {nome: 'antonio', cognome: 'pippo', eta: '20' },
-    pietro = {nome: 'pietro', cognome: 'ciccio', eta: '21' },
-    massimo = {nome: 'massimo', cognome: 'franco', eta: '22'},
+    {nome: 'francesco', cognome: 'renda', eta: '26'},
+    {nome: 'antonio', cognome: 'pippo', eta: '20' },
+    {nome: 'pietro', cognome: 'ciccio', eta: '21' },
+    {nome: 'massimo', cognome: 'franco', eta: '22'},
 ]
 console.table(classe);
 
@@ -33,12 +33,23 @@ const displayClass = document.getElementById('class-list');
 
 for ( let i = 0; i < classe.length; i++){
    const studente = classe[i];
-   let studentInfo = '';
-    for (let key in studente){
-        studentInfo = studente[0,1];
-        console.log(studentInfo);
+        console.log(studente.nome,studente.cognome);
+        displayClass.innerHTML += `<li>${studente.nome} ${studente.cognome}</li>`
 }
+
+
+    const newName = prompt('inserisci il nome','peppe');
+    const newSurname = prompt('inserisci il cognome','rossi');
+    const newAge = prompt("inserisci l'età","30");
+
+    const newMember = { nome: newName, cognome: newSurname, eta: newAge};
+    classe.push(newMember);
+    console.table(classe);
+
+    let updatedClass = document.getElementById('updated-class');
+
+    for ( let i = 0; i < classe.length; i++){
+        const current = classe[i];
+        updatedClass.innerHTML += `<li>${current.nome} ${current.cognome}</li>`;
     }
-    
-   
-    // displayClass.innerHTML += `<li></li>`
+
