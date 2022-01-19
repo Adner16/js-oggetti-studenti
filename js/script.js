@@ -12,18 +12,33 @@ const dispalyStudent = document.getElementById('list');
 
 //1 creare un oggetto // 2 stampare a schermo
 const student = { nome:'Giovanni', cognome:'renda', eta:'26'};
-for(let key in student){
     console.log(student);
-    dispalyStudent.innerHTML = <li>${student}</li>
-}
+    for (let key in student){
+        console.log(key, student[key]);
+            dispalyStudent.innerHTML += `<li>${student[key]}</li>`
+    }
+
 
 // 3 creare un arrey di oggetti
 
-// const classe = [
-//     giovanni = {nome: 'giovanni', cognome: 'renda', eta: '26'},
-//     antonio = {nome: 'antonio', cognome: 'pippo', eta: '20' },
-//     pietro = {nome: 'pietro', cognome: 'ciccio', eta: '21' },
-//     massimo = {nome: 'massimo', cognome: 'franco', eta: '22'},
-// ]
-// console.table(classe);
+const classe = [
+    francesco = {nome: 'francesco', cognome: 'renda', eta: '26'},
+    antonio = {nome: 'antonio', cognome: 'pippo', eta: '20' },
+    pietro = {nome: 'pietro', cognome: 'ciccio', eta: '21' },
+    massimo = {nome: 'massimo', cognome: 'franco', eta: '22'},
+]
+console.table(classe);
 
+const displayClass = document.getElementById('class-list');
+
+for ( let i = 0; i < classe.length; i++){
+   const studente = classe[i];
+   let studentInfo = '';
+    for (let key in studente){
+        studentInfo = studente[0,1];
+        console.log(studentInfo);
+}
+    }
+    
+   
+    // displayClass.innerHTML += `<li></li>`
